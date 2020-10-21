@@ -15,7 +15,7 @@
     </ul>   
     <div id="add_course">
         <h2>{{header}}</h2>
-        <form {%if to_edit %}action="/courses/3/update"{%else%}action="/add/"{%endif%} method="POST">
+        <form {%if to_edit %} action="{{this_id}}/update" {%else%}action="/add/"{%endif%} method="POST">
             {% csrf_token %}
 
             <p class="column1">Name: </p>
@@ -39,7 +39,7 @@
                         <td>{{course.name}}</td>
                         <td>{{course.description.description}}</td>
                         <td>{{course.created_at}}</td>
-                        <td><a href="/courses/{{course.description_id}}">Edit</a> | <a href="">Add Comment</a> | <a href="/courses/destroy/{{course.description_id}}">Remove</a></td>
+                        <td><a href="/courses/{{course.description_id}}">Edit</a> | <a href="/courses/{{course.description_id}}/comments">Add Comment</a> | <a href="/courses/destroy/{{course.description_id}}">Remove</a></td>
                     </tr>
                 {% endfor %}
             </table>

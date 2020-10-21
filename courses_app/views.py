@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Courses, Descriptions
+from .models import Courses, Descriptions, Comments
 from django.contrib import messages
 
 # Create your views here.
@@ -43,6 +43,7 @@ def edit(request, course_id):
         'button': " Update ",
         'to_edit': True,
         'this_course': Courses.objects.get(description_id=course_id),
+        'this_id': course_id,
     }
     return render(request, 'index.html', context)
 
@@ -57,8 +58,15 @@ def update(request, course_id):
 
 def course_comments(request, course_id):
     context = {
-        'course': Courses.objects.get(description_id=course_id),
+        'this_course': Courses.objects.get(description_id=course_id),
     }
+    return render(request, 'comments.html', context)
+    
+def update_comment(request, course_id):
+    this_course = Courses.objects.get(description_id=course_id)
+    Comments.objects.create(topic = request.POST['topic'], comment = request.POST['comment'], course = this_course)
+    return redirect(f'/courses/{course_id}/comments')
+    
     
     
     

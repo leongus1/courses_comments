@@ -10,19 +10,21 @@
     <h1>{{this_course.name}}</h1>
     <p>{{this_course.created_at}}</p>
     <p>{{this_course.modified_at}}</p>
+    <p>{{this_course.description.description}}</p>
 
     <br>
-    <form action="" method="POST">
+    <form action="comments/add" method="POST">
+        {% csrf_token %}
         <label >Subject</label><br>
-        <input type="text" name="subject" id=""><br>
+        <input type="text" name="topic" id=""><br>
         <textarea name="comment" id="" cols="30" rows="10"></textarea><br>
         <input type="submit" value="Post Comment">
 
     </form>
 
-    {% for comment in course.comments %}
-    <h4>{{comment.topic}}</h4>
-    <p>{{comment.comment}}</p>
+    {% for comment in this_course.comments.all %}
+        <h4>{{comment.topic}}</h4>
+        <p>{{comment.comment}}</p>
     {% endfor %}
     
 </body>
