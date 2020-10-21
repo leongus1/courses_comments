@@ -21,7 +21,7 @@
             <p class="column1">Name: </p>
             <input type="text" name="course_name" class="column2" value="{{this_course.name}}"><br>
             <p class="column1">Description: </p>
-            <textarea name="description" id="" cols="30" rows="10" class="column2">{{this_course.description.description}}</textarea><br>
+            <textarea name="description" id="" cols="50" rows="5" class="column2">{{this_course.description.description}}</textarea><br>
             <input type="submit" value="{{button}}">
         </form>
 
@@ -39,7 +39,7 @@
                         <td>{{course.name}}</td>
                         <td>{{course.description.description}}</td>
                         <td>{{course.created_at}}</td>
-                        <td><a href="/courses/{{course.description_id}}">Edit</a> | <a href="/courses/{{course.description_id}}/comments">Add Comment</a> | <a href="/courses/destroy/{{course.description_id}}">Remove</a></td>
+                        <td><a href="/courses/{{course.description_id}}">Edit</a> | <a href="/courses/{{course.description_id}}/comments">View/Add Comments</a> | <a href="/courses/destroy/{{course.description_id}}">Remove</a></td>
                     </tr>
                 {% endfor %}
             </table>

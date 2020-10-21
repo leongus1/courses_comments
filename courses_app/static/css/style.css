@@ -1,9 +1,19 @@
-.column1{
-    width: 400px;
+*{
+    /* padding: 5px; */
+    margin-top: 5px;
 }
 
+.column1{
+    width: 500px;
+    margin-bottom: 5px;
+}
+
+h2{
+    margin-top: 35px;
+}
 .column2{
-    width: 200px;
+    width: 300px;
+    margin-top: 5px;
 }
 
 *{
@@ -17,4 +27,27 @@ table{
 th, td{
     padding: 5px 8px;
     border: 1px solid green;
+}
+
+#pbox{
+    width: 40%;
+    border-bottom: 1px solid black;
+}
+
+#comm{
+    width: 30%;
+}
+
+
+#comm_topic{
+    margin-bottom: 0px;
+    width: 40%;
+    margin-left: 20px;
+}
+
+#comm_body{
+    margin-top: 0px;
+    width: 40%;
+    margin-left: 20px;
+    border: 1px dotted black;
 }
