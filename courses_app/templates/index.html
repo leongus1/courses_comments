@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Student to All Bootcamp Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <ul>
+    {% for message in messages %}
+        <li class="{{message.tag}}">{{message}}</li>
+    {% endfor %}
+    </ul>   
+    <div id="add_course">
+        <h2>{{header}}</h2>
+        <form {%if to_edit %}action="/courses/3/update"{%else%}action="/add/"{%endif%} method="POST">
+            {% csrf_token %}
+
+            <p class="column1">Name: </p>
+            <input type="text" name="course_name" class="column2" value="{{this_course.name}}"><br>
+            <p class="column1">Description: </p>
+            <textarea name="description" id="" cols="30" rows="10" class="column2">{{this_course.description.description}}</textarea><br>
+            <input type="submit" value="{{button}}">
+        </form>
+
+        <div id="courses_list">
+            <h2>Courses</h2>
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+                {% for course in courses%}
+                    <tr>
+                        <td>{{course.name}}</td>
+                        <td>{{course.description.description}}</td>
+                        <td>{{course.created_at}}</td>
+                        <td><a href="/courses/{{course.description_id}}">Edit</a> | <a href="">Add Comment</a> | <a href="/courses/destroy/{{course.description_id}}">Remove</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+    
+    
+</body>
+</html>

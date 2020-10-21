@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+<body>
+
+    <h1>{{this_course.name}}</h1>
+    <p>{{this_course.created_at}}</p>
+    <p>{{this_course.modified_at}}</p>
+
+    <br>
+    <form action="" method="POST">
+        <label >Subject</label><br>
+        <input type="text" name="subject" id=""><br>
+        <textarea name="comment" id="" cols="30" rows="10"></textarea><br>
+        <input type="submit" value="Post Comment">
+
+    </form>
+
+    {% for comment in course.comments %}
+    <h4>{{comment.topic}}</h4>
+    <p>{{comment.comment}}</p>
+    {% endfor %}
+    
+</body>
+</html>

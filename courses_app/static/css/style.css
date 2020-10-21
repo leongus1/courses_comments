@@ -1,0 +1,20 @@
+.column1{
+    width: 400px;
+}
+
+.column2{
+    width: 200px;
+}
+
+*{
+    color: bue;
+}
+
+table{
+    border: 1px solid black;
+}
+
+th, td{
+    padding: 5px 8px;
+    border: 1px solid green;
+}

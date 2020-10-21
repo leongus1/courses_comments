@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete a Course</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete the below course?</h1>
+    <br>
+    <p class="subject">Name: </p> 
+    <p>{{course.name}}</p>
+    <p class="subject">Description: </p>
+    <p>{{course.description.description}}</p>
+
+    <a href="/"><button>No</button></a>
+    <a href='{{course.description_id}}/delete'><button id="red">Yes! I want to delete this.</button></a>
+    
+</body>
+</html>
